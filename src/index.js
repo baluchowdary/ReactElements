@@ -1,17 +1,39 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+ReactDOM.render(<App/>, document.getElementById('root'));
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+
+class Animal{
+    constructor(name,age){
+        this.name=name;
+        this.age=age;
+    }
+
+    speak(){
+        console.log('I am=', this.name, 'and I am= ', this.age, 'yeal old');
+    }
+}
+
+const animal1 = new Animal('tiger',31);
+animal1.speak();
+console.log(animal1);
+
+class childAnimal extends Animal {
+constructor(name,age,color){
+    super(name,age);
+    this.color=color;
+}//constructor
+
+roar(){
+    console.log('i am roar and color=', this.color);
+}
+} //childClass
+
+const childAnimal1 = new childAnimal('childtiger',12,'blaclcolor');
+childAnimal1.speak();
+childAnimal1.roar();
+
+console.log(childAnimal1);
